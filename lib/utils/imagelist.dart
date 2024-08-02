@@ -1,0 +1,15 @@
+List imgList=[
+  'assets/quotes/img.jpeg',
+  'assets/quotes/img1.jpeg',
+  'assets/quotes/img2.jpeg',
+  'assets/quotes/img3.jpeg',
+  'assets/quotes/img4.jpeg',
+  'assets/quotes/img5.jpeg',
+  'assets/quotes/img6.jpeg',
+  'assets/quotes/img7.jpeg',
+  'assets/quotes/img8.jpeg',
+  'assets/quotes/img9.jpeg',
+  'assets/quotes/img10.jpeg',
+  'assets/quotes/img11.jpeg',
+  'assets/quotes/img12.jpeg',
+];
