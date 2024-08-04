@@ -4,7 +4,7 @@ import '../helper/sql_helper.dart';
 import '../modal/api_modal.dart';
 
 class FavoritesController extends GetxController {
-  RxList<Quote> favoritesList = <Quote>[].obs;
+  RxMap<String, List<Quote>> categorizedFavorites = <String, List<Quote>>{}.obs;
 
   @override
   void onInit() {
@@ -14,23 +14,39 @@ class FavoritesController extends GetxController {
 
   Future<void> loadFavorites() async {
     final List<Map<String, dynamic>> favorites = await DatabaseService.instance.getFavorites();
-    favoritesList.value = favorites.map((data) => Quote.fromMap(data)).toList();
+    final quotes = favorites.map((data) => Quote.fromMap(data)).toList();
+
+    final Map<String, List<Quote>> categoryMap = {};
+    for (var quote in quotes) {
+      if (categoryMap.containsKey(quote.category)) {
+        categoryMap[quote.category]!.add(quote);
+      } else {
+        categoryMap[quote.category!] = [quote];
+      }
+    }
+
+    categorizedFavorites.value = categoryMap;
   }
 
   void addFavorite(String quote, String author, String category, String image) {
     final newQuote = Quote(quote: quote, author: author, category: category, image: image, isLiked: true);
     DatabaseService.instance.addFavorite(quote, author, true, category, image);
-    favoritesList.add(newQuote);
-    favoritesList.refresh();
+    if (categorizedFavorites.value.containsKey(category)) {
+      categorizedFavorites.value[category]!.add(newQuote);
+    } else {
+      categorizedFavorites.value[category] = [newQuote];
+    }
+    categorizedFavorites.refresh();
   }
 
   void removeFavorite(String quote) {
+    final removedQuote = categorizedFavorites.value.values.expand((list) => list).firstWhere((item) => item.quote == quote);
     DatabaseService.instance.deleteFavorite(quote);
-    favoritesList.removeWhere((item) => item.quote == quote);
-    favoritesList.refresh();
+    categorizedFavorites.value[removedQuote.category]?.removeWhere((item) => item.quote == quote);
+    categorizedFavorites.refresh();
   }
 
   bool isFavorite(String quote) {
-    return favoritesList.any((item) => item.quote == quote);
+    return categorizedFavorites.value.values.expand((list) => list).any((item) => item.quote == quote);
   }
 }

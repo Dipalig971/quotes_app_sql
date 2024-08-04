@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quotes_app_sql/controller/quotes_controller.dart';
 import 'package:quotes_app_sql/utils/imagelist.dart';
-import 'package:quotes_app_sql/view/catagori/category_screen.dart';
 import 'package:quotes_app_sql/view/settings/setting_screen.dart';
 import 'package:share_extend/share_extend.dart';
 import '../../controller/sql_controller.dart';
+import '../category/category_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -38,20 +38,20 @@ class HomeScreen extends StatelessWidget {
                     Row(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(top: 55, left: 20),
+                          padding: const EdgeInsets.only(top: 55, left:   10),
                           child: InkWell(
                             onTap: () {
-                              Get.to(const CategoryScreen());
+                              Get.to( const CategoryScreen());
                             },
                             child: Container(
                               height: 60,
-                              width: 300,
+                              width: 250,
                               decoration: BoxDecoration(
                                 color: const Color(0xff5B7C71),
                                 borderRadius: BorderRadius.circular(15),
                               ),
                               child: const Padding(
-                                padding: EdgeInsets.only(left: 100),
+                                padding: EdgeInsets.only(left: 70),
                                 child: Row(
                                   children: [
                                     Center(

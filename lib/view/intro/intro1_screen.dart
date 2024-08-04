@@ -47,7 +47,8 @@ class Intro1 extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               DropdownButtonFormField<String>(
-                value: 'Female',
+                hint: Text('Gender'),
+                // value: 'Female',
                 items: ['Female', 'Male', 'Other'].map((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
@@ -66,7 +67,7 @@ class Intro1 extends StatelessWidget {
                   Get.to(const HomeScreen());
                 },
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 290),
+                  padding: const EdgeInsets.only(top: 100),
                   child: Container(
                     height: 70,
                     width: 400,

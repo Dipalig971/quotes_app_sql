@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quotes_app_sql/view/intro/intro1_screen.dart';
@@ -24,7 +23,7 @@ class IntroScreen extends StatelessWidget {
               const SizedBox(
                 width: double.infinity,
                 child: Padding(
-                  padding: EdgeInsets.only(top: 100),
+                  padding: EdgeInsets.only(top: 50),
                   child: Image(
                     image: AssetImage('assets/image/intro.png'),
                     fit: BoxFit.cover,
@@ -60,21 +59,24 @@ class IntroScreen extends StatelessWidget {
                 onTap: () {
                   Get.to(const Intro1());
                 },
-                child: Container(
-                  height: 70,
-                  width: 400,
-                  decoration: BoxDecoration(
-                    color: const Color(0xff36B17B),
-                    borderRadius: BorderRadius.circular(15),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    height: 60,
+                    width: 400,
+                    decoration: BoxDecoration(
+                      color: const Color(0xff36B17B),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: const Center(
+                        child: Text(
+                      "let's get started",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                    )),
                   ),
-                  child: const Center(
-                      child: Text(
-                    "let's get started",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold),
-                  )),
                 ),
               )
             ],

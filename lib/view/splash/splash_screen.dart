@@ -10,7 +10,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Timer(const Duration(seconds: 5), () {
-     Get.to(const IntroScreen());
+      Get.to(const IntroScreen());
     });
     return const Scaffold(
       backgroundColor: Color(0xff36B17B),
@@ -18,11 +18,11 @@ class SplashScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-            padding: EdgeInsets.only(left: 150),
+            padding: EdgeInsets.only(left: 100),
             child: Image(image: AssetImage('assets/image/bg.png')),
           ),
           Padding(
-            padding: EdgeInsets.only(left: 130),
+            padding: EdgeInsets.only(left: 100),
             child: Text('Quotes App',style: TextStyle(fontSize: 35,fontWeight: FontWeight.bold,color: Colors.white),),
           ),
         ],
