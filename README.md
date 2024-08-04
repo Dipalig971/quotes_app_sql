@@ -1,16 +1,24 @@
 # quotes_app_sql
 
-A new Flutter project.
+A simple Flutter application for managing and displaying quotes. The application uses the sqflite package for local database management.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- View all quotes
+- Edit existing quotes
+- Delete quotes
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Dependencies
+```
+flutter: SDK
+sqflite: ^2.0.0+4
+path_provider: ^2.0.1
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```
+
+
+## Video
+
+https://github.com/user-attachments/assets/f8074340-d234-4a35-bc99-906378d9f728
+
